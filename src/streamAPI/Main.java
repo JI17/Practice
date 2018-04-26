@@ -1,9 +1,6 @@
 package streamAPI;
 
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -65,5 +62,21 @@ public class Main {
                         p -> p.name,
                         (name1, name2) -> name1 + ";" + name2));
         System.out.println(map);
+
+//      Создание своего Collectors
+
+        Collector<Person, StringJoiner, String> personNameCollector =
+                Collector.of(
+                        () -> new StringJoiner(" | "), //supplier--поставщик
+                        (j, p) -> j.add(p.name.toUpperCase()),  //accumulator--аккамулятор
+                        StringJoiner::merge,                    //combiner--объединитель
+                        StringJoiner::toString);                //finisher--финишер
+
+//    Проверяем собственный Collectors
+
+        String names = person
+                .stream()
+                .collect(personNameCollector);
+        System.out.println(names);
     }
 }
