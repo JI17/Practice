@@ -1,5 +1,6 @@
 package streamAPI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -25,6 +26,20 @@ public class StreamAPI {
         IntStream.range(2, 16)
                 .mapToObj(i -> "c" + i)
                 .forEach(System.out::println);
+
+
+        List<Foo> foos = new ArrayList<>();
+//    create foo
+        IntStream.range(1, 4)
+                .forEach(i -> foos.add(new Foo("Foo" + i)));
+//        create bars
+        foos.forEach(f -> IntStream
+                .range(1, 4)
+                .forEach(i -> f.bars.add(new Bar("Bar" + i + "<-" + f.getName()))));
+
+        foos.stream()
+                .flatMap(f -> f.bars.stream())
+                .forEach(b -> System.out.println(b.getName()));
 
     }
 }

@@ -3,6 +3,7 @@ package streamAPI;
 import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class Main {
                 .stream()
                 .collect(Collectors.groupingBy(p -> p.age));
 
-        personsByAge.forEach((age, p)->System.out.format("age %s: %s\n", age, p));
+        personsByAge.forEach((age, p) -> System.out.format("age %s: %s\n", age, p));
 
 //        Узнать средни возраст
 
@@ -78,5 +79,7 @@ public class Main {
                 .stream()
                 .collect(personNameCollector);
         System.out.println(names);
+
+
     }
 }
