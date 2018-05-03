@@ -53,6 +53,7 @@ public class Main {
                 .map(p -> p.name)
                 .collect(Collectors.joining(", ", "В Германии ", " совершеннолетние"));
         System.out.println(phrase);
+        System.out.println();
 
 //        Преобразование в Map
 
