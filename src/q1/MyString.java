@@ -1,3 +1,5 @@
+package q1;
+
 interface MyString {
     String myStringFunction(String str);
 

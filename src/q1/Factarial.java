@@ -1,3 +1,5 @@
+package q1;
+
 public interface Factarial {
     int getResult(int numb);
 }

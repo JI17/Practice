@@ -1,3 +1,5 @@
+package q1;
+
 public class Main1 {
     public static void method() {
         Runtime runtime = Runtime.getRuntime();

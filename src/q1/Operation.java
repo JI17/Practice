@@ -1,3 +1,5 @@
+package q1;
+
 public interface Operation {
     int getResult(int v1, int v2);
 }
