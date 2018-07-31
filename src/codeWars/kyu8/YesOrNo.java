@@ -1,6 +1,6 @@
 package codeWars.kyu8;
 
-class YesOrNo
+public class YesOrNo
 {
     public static String boolToWord(boolean b)
     {
