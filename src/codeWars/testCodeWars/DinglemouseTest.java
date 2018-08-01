@@ -1,14 +1,27 @@
 package codeWars.testCodeWars;
 
-import codeWars.kyu8.Dinglemouse;
+import codeWars.kyu7.Dinglemouse;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 
 public class DinglemouseTest {
 
+
     @Test
-    public void test() {
-        System.out.println(Dinglemouse.INST.plus100(23));
-        // Err... was that right?
+    public void example() {
+        assertEquals(36, Dinglemouse.tvRemote("codewars"));
+    }
+
+    @Test
+    public void misc() {
+        assertEquals(16, Dinglemouse.tvRemote("does"));
+        assertEquals(23, Dinglemouse.tvRemote("your"));
+        assertEquals(33, Dinglemouse.tvRemote("solution"));
+        assertEquals(20, Dinglemouse.tvRemote("work"));
+        assertEquals(12, Dinglemouse.tvRemote("for"));
+        assertEquals(27, Dinglemouse.tvRemote("these"));
+        assertEquals(25, Dinglemouse.tvRemote("words"));
     }
 
 }
