@@ -1,7 +1,8 @@
-package codeWars.kyu7;
+package codeWars.testCodeWars;
 
 import static org.junit.Assert.*;
 
+import codeWars.kyu7.Arge;
 import org.junit.Test;
 
 public class ArgeTest {
