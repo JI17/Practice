@@ -1,4 +1,4 @@
-package q1;
+package work;
 
 public interface Factarial {
     int getResult(int numb);

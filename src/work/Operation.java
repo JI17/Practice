@@ -1,4 +1,4 @@
-package q1;
+package work;
 
 public interface Operation {
     int getResult(int v1, int v2);

@@ -1,4 +1,4 @@
-package q1;
+package work;
 
 interface NumericAndStringLambdaTest {
     boolean computeTest(int n);

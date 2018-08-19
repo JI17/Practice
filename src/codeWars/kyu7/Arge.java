@@ -1,6 +1,6 @@
 package codeWars.kyu7;
 
-class Arge {
+public class Arge {
 
 //    todo разобраться StackOverflowError
 

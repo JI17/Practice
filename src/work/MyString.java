@@ -1,4 +1,4 @@
-package q1;
+package work;
 
 interface MyString {
     String myStringFunction(String str);

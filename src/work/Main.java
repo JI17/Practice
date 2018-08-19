@@ -1,9 +1,4 @@
-package q1;
-
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+package work;
 
 public class Main {
 

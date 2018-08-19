@@ -1,4 +1,4 @@
-package q1;
+package work;
 
 public class Triangle {
 //    Даны вещественные числа a, b, и c. Найти площадь треугольника
