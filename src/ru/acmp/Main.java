@@ -1,124 +1,68 @@
 package ru.acmp;
-//Дана последовательность целых чисел. Требуется найти подпоследовательность заданной последовательности
-// с максимальным модулем суммы входящих в нее чисел. Напомним, что модуль целого числа x равняется x,
-// если x ≥ 0 и -x, если x < 0.
-//
-//Входные данные
-//Первая строка входного файла INPUT.TXT содержит натуральное число n (1 ≤ n ≤ 10000) - длину последовательности.
-// Во второй строке записаны n целых чисел, по модулю не превосходящих 10000.
-//
-//Выходные данные
-//В первой строке выходного файла OUTPUT.TXT выведите длину k выбранной вами подпоследовательности.
-// Во второй строке должны быть записаны k различных чисел, разделенных пробелами - номера выбранных членов последовательности.
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    private static int p = 0;
 
-    int count = 0;
-
-
-     String getArrInt(int[] arr) throws FileNotFoundException {
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
-        }
-        return Arrays.toString(arr);
+    public static void main(String[] args) throws IOException {
+        Main.run();
     }
 
-     void getArrNoZero(int arr[]) {
-         int j = 0;
+    private static void run() throws IOException {
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
+       Scanner sc = new Scanner(new File("input.txt"));
+        sc.useDelimiter(System.getProperty("line.separator"));
+        String[] countOfNumbs = sc.next().split(" ");
 
-                count++;
+        int n = Integer.parseInt(countOfNumbs[1]);
+        String[] readNumbs = sc.next().split(" ");
+        int iel = Integer.parseInt(readNumbs[0]);
+        int jel = Integer.parseInt(readNumbs[1]);
+        p = sc.nextInt();
+        ArrayList<int[][]> arrays = new ArrayList<>();
+
+        while (sc.hasNext()) {
+            int[][] array = new int[n][n];
+            sc.next();
+            for (int j = 0; j < n; j++) {
+                String[] split = sc.next().split(" ");
+                for (int m = 0; m < split.length; m++) {
+                    array[j][m] = Integer.parseInt(split[m]);
+                }
             }
+            arrays.add(array);
         }
-        System.out.println(count);
+
+        for (int i = 0; i < arrays.size() - 1; i++) {
+            arrays.set(0, multiple(n, arrays.get(0), arrays.get(i + 1)));
+        }
+
+        PrintWriter pw = new PrintWriter(new File("output.txt"));
+        pw.print(arrays.get(0)[iel - 1][jel - 1]);
+        pw.close();
     }
 
+    private static int[][] multiple(int n, int[][] f, int[][] s) {
+        int[][] multipleArray = new int[n][n];
+        int[][] bt = new int[n][n];
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < n; ++j)
+                bt[i][j] = s[j][i];
 
-
-    public static void main(String[] args) throws FileNotFoundException {
-        Main main = new Main();
-        Scanner scanner = new Scanner(System.in);
-        int arr[] = new int[scanner.nextInt()];
-        int newarr[] = new int[main.count];
-
-        main.getArrInt(arr);
-        main.getArrNoZero(arr);
-
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < n; ++j) {
+                int value = 0;
+                for (int k = 0; k < n; ++k)
+                    value += f[i][k] * bt[j][k];
+                if (value >= p) {
+                    value = value % p;
+                }
+                multipleArray[i][j] = value;
+            }
+        return multipleArray;
     }
-
 }
-//import java.io.File;
-//import java.io.IOException;
-//import java.io.PrintWriter;
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Scanner;
-//
-//public class Main {
-//    public static void main(String[] args) throws IOException{
-//        Main.run();
-//    }
-//
-//    private static void run() throws IOException {
-//        PrintWriter pw;
-//        Scanner sc;
-//        sc = new Scanner(new File("INPUT.TXT"));
-//        sc.useDelimiter(System.getProperty("line.separator"));
-//        int countOfNums = sc.nextInt();
-//        String readNums =  sc.next();
-//
-//        String[] str = readNums.split(" ");
-//        int[] nums = new int[str.length];
-//        for (int i = 0; i < str.length; i++) {
-//            nums[i] = Integer.parseInt(str[i]);
-//        }
-//
-//        sc.close();
-//
-//        List<Integer> indexPlus = new ArrayList<>(nums.length);
-//        List<Integer> indexMinus = new ArrayList<>(nums.length);
-//        int sumPlus = 0;
-//        int sumMinus = 0;
-//
-//        for (int i = 0; i < nums.length; i++) {
-//            if (nums[i] > 0) {
-//                sumPlus += nums[i];
-//                indexPlus.add(i);
-//            }
-//            else if (nums[i] < 0 ){
-//                sumMinus += Math.abs(nums[i]);
-//                indexMinus.add(i);
-//            }
-//        }
-//
-//        pw = new PrintWriter(new File("OUTPUT.TXT"));
-//        if (sumPlus > sumMinus) {
-//            pw.print(indexPlus.size()  );
-//            pw.println();
-//            for (int s : indexPlus) {
-//                pw.print(s + 1 +  " ");
-//            }
-//        }
-//        else {
-//            pw.print(indexMinus.size()  );
-//            pw.println();
-//            for (int s : indexMinus) {
-//                pw.print(s + 1  + " ");
-//            }
-//        }
-//
-//        pw.close();
-//
-//    }
-//
-//}
