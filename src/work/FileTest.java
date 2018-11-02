@@ -5,7 +5,7 @@ import java.io.*;
 public class FileTest {
 
     public static void main(String[] args) throws IOException {
-        File file = new File("temp.txt");
+        File file = new File("input.txt");
 
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
         bufferedWriter.write("Str");
