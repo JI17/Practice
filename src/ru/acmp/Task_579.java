@@ -1,17 +1,7 @@
 package ru.acmp;
-//Дана последовательность целых чисел. Требуется найти подпоследовательность заданной последовательности
-// с максимальным модулем суммы входящих в нее чисел. Напомним, что модуль целого числа x равняется x,
-// если x ≥ 0 и -x, если x < 0.
-//
-//Входные данные
-//Первая строка входного файла input.txt содержит натуральное число n (1 ≤ n ≤ 10000) - длину последовательности.
-// Во второй строке записаны n целых чисел, по модулю не превосходящих 10000.
-//
-//Выходные данные
-//В первой строке выходного файла output.txt выведите длину k выбранной вами подпоследовательности.
-// Во второй строке должны быть записаны k различных чисел, разделенных пробелами - номера выбранных членов последовательности.
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -43,6 +33,10 @@ public class Task_579 {
             }
         }
 
+        printAnswer(positiveNumbers, negativeNumbers, countPositive, countNegative);
+    }
+
+    private static void printAnswer(List<Integer> positiveNumbers, List<Integer> negativeNumbers, int countPositive, int countNegative) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter(new File("output.txt"));
         if (countPositive > countNegative) {
             pw.print(positiveNumbers.size());
