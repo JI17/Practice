@@ -8,6 +8,14 @@ public class Dinglemouse {
 
     private final int value;
 
+    @Override
+    public String toString() {
+        return "Dinglemouse{" +
+                "ONE_HUNDRED=" + ONE_HUNDRED +
+                ", value=" + value +
+                '}';
+    }
+
     private Dinglemouse() {
         value = ONE_HUNDRED;
     }
