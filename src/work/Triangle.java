@@ -12,6 +12,7 @@ public class Triangle {
         System.out.println(s);
     }
 
+
     public static void main(String[] args) {
         Triangle.areaOfTriangle(10, 13, 15);
     }

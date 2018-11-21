@@ -2,7 +2,7 @@ package work;
 
 public class Main {
 
-//    public static void main(String[] args) {
+//    public static void Main7(String[] args) {
 //        List arrayList = new ArrayList();
 //        arrayList.add("str1");
 //        arrayList.add("str2");
@@ -14,7 +14,7 @@ public class Main {
 //        System.out.println(arrayList.size());
 //    }
 
-//    public static void main(String[] args) {
+//    public static void Main7(String[] args) {
 //        boolean b = true;
 //        int x = 0;
 //
@@ -25,7 +25,7 @@ public class Main {
 //        } while (b);
 //    }
 
-    //    public static void main(String[] args) {
+    //    public static void Main7(String[] args) {
 //        Object obj = new String("String object");
 //        String str = (String) new Object();
 //        System.out.println(obj);
